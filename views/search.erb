@@ -1,0 +1,14 @@
+<br>
+<h2>We found <%= @results.size %> results for your search request:</h2>
+<br>
+<% @results.each_with_index do |recipe, index| %>
+<div class="card" style="background: linear-gradient(to bottom right, rgb(<%= rand(120..200) %>,<%= rand(0..50)%>,<%= rand(0..50)%>) , rgb(<%= rand(180..255) %>,<%= rand(0..100)%>,<%= rand(0..100)%>));">
+  <div class="card-category"><%= recipe.difficulty %></div>
+  <div class="card-description">
+    <h2><%= recipe.name %>   <%= recipe.time %></h2>
+    <p><%= recipe.description %></p>
+  </div>
+  <a class="card-link" href="add/<%= index %>">Add to Cookbook></a>
+</div>
+<br>
+<% end %>
