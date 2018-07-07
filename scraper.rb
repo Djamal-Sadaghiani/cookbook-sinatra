@@ -12,7 +12,7 @@ class Scrapper
     description = doc.search('ul.search-list p.search-list-item-subtitle').map(&:text)
     recipes = []
     titles.each_with_index do |title, index|
-      recipes << Recipe.new(title, description[index], difficulty[index], time[index])
+      recipes << Recipe.new(title, description[index], difficulty[index], time[index], false)
     end
     return recipes
   end

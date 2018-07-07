@@ -11,12 +11,21 @@ class Cookbook
 
   def read_csv(csv)
     CSV.foreach(csv) do |row|
-      @recipes << Recipe.new(row[0], row[1], row[2], row[3], row[4])
+      @recipes << Recipe.new(row[0], row[1], row[2], row[3], row[4] == "true")
     end
   end
 
   def all
     @recipes
+  end
+
+  def read(index)
+  if @recipes[index].read == true
+    @recipes[index].read = false
+  else
+    @recipes[index].read = true
+  end
+  write_csv
   end
 
   def add_recipe(recipe)

@@ -31,6 +31,11 @@ get '/' do
   erb :index
 end
 
+get '/read/:index' do
+  cookbook.read(params[:index].to_s.to_i)
+  redirect '/'
+end
+
 get '/delete/:index' do
   cookbook.remove_recipe(params[:index].to_s.to_i)
   redirect '/'
